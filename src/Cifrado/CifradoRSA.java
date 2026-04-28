@@ -2,7 +2,7 @@ package Cifrado;
 
 import javax.crypto.Cipher;
 import java.security.*;
-import java.util.Base64;
+import java.security.spec.X509EncodedKeySpec;
 
 public class CifradoRSA {
 
@@ -29,7 +29,7 @@ public class CifradoRSA {
     }
 
     public static PublicKey bytesAClavePublica(byte[] claveBytes) throws Exception {
-        java.security.spec.X509EncodedKeySpec spec = new java.security.spec.X509EncodedKeySpec(claveBytes);
+        X509EncodedKeySpec spec = new X509EncodedKeySpec(claveBytes);
         KeyFactory factory = KeyFactory.getInstance("RSA");
         return factory.generatePublic(spec);
     }
